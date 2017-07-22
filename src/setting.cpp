@@ -3,7 +3,7 @@
 using namespace std;
 using namespace cv;
 
-float image_sizeRatio = 0.5;
+float image_sizeRatio = 0.3;
 float blueCircle_thresholdRatio = 0.066;
 float marker_thresholdRatio = 0.066;
 
@@ -63,3 +63,5 @@ namespace objectR
 		ans.x=(-1)* (p2.y - p1.y);
 	}
 }
+
+

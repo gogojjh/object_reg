@@ -9,8 +9,8 @@
 #include "object_reg/pictureresult.h"
 
 #include "object_reg/setting.h"
-#include "object_reg/DetectBlueCircle.h"
 #include "object_reg/DetectMarker.h"
+#include "object_reg/DetectBlueCircle.h"
 #include "object_reg/DetectYellowLine.h"
 
 using namespace cv;

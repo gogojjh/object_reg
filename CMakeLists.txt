@@ -50,12 +50,13 @@ include_directories( ${apriltags_SOURCE_DIR}/include )
 #link_directories( ${apriltags_SOURCE_DIR}/build/lib )
 
 # object_reg
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 include_directories( ${PROJECT_SOURCE_DIR}/include 
    	   	     "/usr/include/eigen3")
 add_library(${PROJECT_NAME} SHARED 
     src/DetectBlueCircle.cpp
     src/DetectMarker.cpp
+    src/DetectYellowLine.cpp
     src/setting.cpp
 )
 target_link_libraries(${PROJECT_NAME}
@@ -71,12 +72,11 @@ target_link_libraries(${PROJECT_NAME}
 #     ${OpenCV_LIBS}
 # )
 
-
 # node
 add_executable(${PROJECT_NAME}_node nodes/object_reg_node.cpp)
 target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
 target_link_libraries(${PROJECT_NAME}_node 
-    ${PROJECT_NAME} 
+    ${PROJECT_NAME}
     apriltags 
     ${OpenCV_LIBS}
 )

@@ -29,20 +29,20 @@ int main(int argc, char **argv)
 	
 	while (ros::ok())
 	{
-	    // please uncomment if you want to test this algorithm offline
-// 	    imagereader->imgOriginal = imread("/home/floatsdsds/document/catkin_ws/src/object_reg/image/circle.png");	    
+// 	    // please uncomment if you want to test this algorithm offline
+// 	    imagereader->imgOriginal = imread("/home/chiao/documents/catkin_ws/src/object_reg/image/marker.png"); // 1080*1920    
   	    if (!imagereader->imgOriginal.empty())
  	    {
  		ROS_INFO("%d", imagereader->target);
  		switch (imagereader->target)
-// 		switch (2)
+// 		switch (1)
 		{
 		    case 0:break;
-		    case 1:imagereader->TrackMonoImage("marker");
-		    case 2:imagereader->TrackMonoImage("circle");
-		    case 3:imagereader->TrackMonoImage("line");
+		    case 1:imagereader->TrackMonoImage("marker"); break;
+		    case 2:imagereader->TrackMonoImage("circle"); break;
+		    case 3:imagereader->TrackMonoImage("line"); break;
 		    default:;
-		}
+		}	
 		if (imagereader->objectFind) 
 		{
 		    cout << imagereader->objectCenter << endl;		    
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 		namedWindow("Processed image", CV_WINDOW_NORMAL);
 		imshow("Processed image", imagereader->imgProcessed);
 	    }
-	    waitKey(1);
+	    waitKey(2000);
 	    
 	    // coordinate system transformation
 	    pictureresult.objectfind = imagereader->objectFind;
